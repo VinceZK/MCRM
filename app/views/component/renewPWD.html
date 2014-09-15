@@ -1,0 +1,24 @@
+<!-- Enter a password -->
+<!--<hr />-->
+
+<h4 class="form-signin-heading">
+    <span class="glyphicon glyphicon-lock"></span>
+    修改初始密码:
+</h4>
+
+<div id="password-group1" class="form-group"
+     ng-class="{'has-error' : loginForm.password1.$invalid && !loginForm.password1.$pristine }">
+    <input type="password" name="password1" class="form-control" placeholder="输入一个新密码"
+           ng-model="formData.password1" ng-minlength="6" ng-maxlength="20" focus-me="focusPWD1">
+    <span class="help-block" ng-show="loginForm.password1.$error.minlength">密码太短(至少6位)</span>
+    <span class="help-block" ng-show="loginForm.password1.$error.maxlength">密码太长(最多20位)</span>
+</div>
+
+<!-- confirm the password -->
+<div id="password-group2" class="form-group"
+     ng-class="{ 'has-error' :  !(formData.password1 == formData.password2) && !loginForm.password2.$pristine}">
+    <input type="password" name="password2"  class="form-control" placeholder="再次输入新密码"
+           ng-model="formData.password2" required>
+    <span class="help-block" ng-show="!(formData.password1 == formData.password2) && !loginForm.password2.$pristine">
+        密码不一致</span>
+</div>

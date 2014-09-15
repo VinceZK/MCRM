@@ -1,0 +1,31 @@
+<form class="form-signin" role="form" name="loginForm" ng-submit="processLogin()" novalidate>
+
+    <h3 class="form-signin-heading">
+        <span class="glyphicon glyphicon-user"></span>
+        欢迎登入MCRM
+    </h3>
+
+    <!-- User/Email -->
+    <div id="email-group" class="form-group" ng-class="{ 'has-error' : errorEmail }">
+        <input type="text" class="form-control" placeholder="用户名" ng-model="formData.email" required autofocus>
+        <span class="help-block" ng-show="errorEmail">{{ errorEmail }}</span>
+    </div>
+
+    <!-- Password -->
+    <div id="password-group" class="form-group" ng-class="{ 'has-error' : errorPassword }">
+        <input type="password" class="form-control" placeholder="密码" ng-model="formData.password" required>
+        <span class="help-block" ng-show="errorPassword">{{ errorPassword }}</span>
+    </div>
+
+    <!-- Renew Password inspection here! -->
+
+    <div ui-view autoscroll='true'></div>
+
+
+
+    <label class="checkbox">
+        <input type="checkbox" value="remember-me" ng-model="formData.rememberme"> Remember me
+    </label>
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">{{ SignIn }}</button>
+</form>

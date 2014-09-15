@@ -1,0 +1,29 @@
+
+<form class="form-search" role="form" name="searchForm" ng-submit="processSearch()" novalidate>
+    <h3 class="form-search-heading">
+        <span class="glyphicon glyphicon-search"></span>
+        查询客户
+    </h3>
+
+    <!-- 选择楼盘 -->
+    <div id="saleOrg-group" class="form-group" ng-class="{ 'has-error' : errorSaleOrg }">
+        <label>所属楼盘:</label>
+        <div>
+            <select class="form-control"
+                    ng-model="currentSaleOrg"
+                    ng-options="saleOrg.saleOrgDesc for saleOrg in saleOrgs">
+            </select>
+        </div>
+        <span class="help-block" ng-show="errorSaleOrg">{{ errorSaleOrg }}</span>
+    </div>
+
+    <!-- 输入手机号/电话号 -->
+    <div id="phone-group" class="form-group" ng-class="{ 'has-error' : errorPhone }">
+        <label>客户电话:</label>
+        <input type="text" pattern="[0-9]*" class="form-control" ui-mask="999-9999-9999" maxlength="11"  ng-model="formData.phone" focus-me="focusPhone" required>
+        <span class="help-block" ng-show="errorPhone">{{ errorPhone }}</span>
+    </div>
+
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit">查询</button>
+</form>
