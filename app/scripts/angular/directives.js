@@ -7,6 +7,7 @@ var dkDirectives = angular.module('dkDirectives',[]);
 // Define a directive and have it $watch a property/trigger so it knows when to focus the element:
 dkDirectives.directive('focusMe', function($timeout, $parse) {
     return {
+        restrict: 'A',
         link: function(scope, element, attrs) {
             var model = $parse(attrs.focusMe);
             scope.$watch(model, function(value) {
@@ -23,4 +24,23 @@ dkDirectives.directive('focusMe', function($timeout, $parse) {
             })
         }
     };
+});
+dkDirectives.directive('loginFormAutofillFix', function(){
+    return{
+        restrict: 'A',
+        link:function(scope, elem, attrs) {
+            if (!attrs.ngSubmit) {
+                return;
+            }
+            setTimeout(function () {
+                elem.unbind("submit").bind("submit", function (e) {
+                    //DO NOT PREVENT!  e.preventDefault();
+                    elem.find("input").triggerHandler("input");
+                    scope.$apply(attrs.ngSubmit);
+                });
+            }, 0);
+        }
+    }
+
+
 });

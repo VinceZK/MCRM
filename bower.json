@@ -1,6 +1,7 @@
 {
   "name": "MCRM",
   "version": "0.0.1",
+  "private": true,
   "dependencies": {
     "angular": "~1.2.12-build.2226",
     "angular-route": "~1.2.12-build.2226",
@@ -8,7 +9,9 @@
     "angular-bootstrap": "~0.11.0",
     "angular-ui-router": "~0.2.11",
     "angular-ui-utils": "~0.1.1",
-    "angular-cookies": "~1.2.24"
+    "angular-cookies": "~1.2.24",
+    "angular-resource": "~1.2.25",
+    "angular-http-auth": "~1.2.1"
   },
   "devDependencies": {}
 }
